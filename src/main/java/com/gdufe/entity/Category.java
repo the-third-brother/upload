@@ -1,15 +1,15 @@
 package com.gdufe.entity;
 
 public class Category {
-    private int id;
+    private int cId;
     private String name;
 
-    public int getId() {
-        return id;
+    public int getcId() {
+        return cId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setcId(int cId) {
+        this.cId = cId;
     }
 
     public String getName() {
@@ -23,7 +23,7 @@ public class Category {
     @Override
     public String toString() {
         return "Category{" +
-                "id=" + id +
+                "cId=" + cId +
                 ", name='" + name + '\'' +
                 '}';
     }

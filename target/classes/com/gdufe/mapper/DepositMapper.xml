@@ -1,0 +1,26 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gdufe.mapper.DepositMapper">
+    <insert id="addFile" parameterType="com.gdufe.entity.DepositFile">
+        insert into file_deposit() values(null, #{name}, #{size}, #{url})
+    </insert>
+
+    <select id="queryAllFileInfo" resultType="com.gdufe.entity.DepositFile">
+        select * from file_deposit
+    </select>
+
+    <select id="downloadById" resultType="com.gdufe.entity.DepositFile">
+        select * from file_deposit
+        where f_id = #{fId}
+    </select>
+
+    <delete id="deleteById">
+        delete from file_deposit
+        where f_id = #{fId}
+    </delete>
+
+    <select id="countAllFileInfo" resultType="int">
+        select count(*) from file_deposit
+    </select>
+</mapper>

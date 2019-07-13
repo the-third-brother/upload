@@ -1,0 +1,28 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gdufe.mapper.UploadMapper">
+    <insert id="addSoftwareFile">
+        insert into software_details
+        <trim prefix="(" suffix=")" prefixOverrides=",">
+            <if test="name!=null and name!=''">,name</if>
+            <if test="cId!=null">,c_id</if>
+            <if test="size!=null">,size</if>
+            <if test="statement!=null and statement!=''">,statement</if>
+            <if test="url!=null and url!=''">,url</if>
+            <if test="uploader!=null and uploader!=''">,uploader</if>
+            <if test="uploadTime!=null">,upload_time</if>
+            <if test="download!=null">,download</if>
+        </trim>
+        <trim prefix="values(" suffix=")" prefixOverrides=",">
+            <if test="name!=null and name!=''">,#{name}</if>
+            <if test="cId!=null">,#{cId}</if>
+            <if test="size!=null">,#{size}</if>
+            <if test="statement!=null and statement!=''">,#{statement}</if>
+            <if test="url!=null and url!=''">,#{url}</if>
+            <if test="uploader!=null and uploader!=''">,#{uploader}</if>
+            <if test="uploadTime!=null">,#{uploadTime}</if>
+            <if test="download!=null">,#{download}</if>
+        </trim>
+    </insert>
+</mapper>

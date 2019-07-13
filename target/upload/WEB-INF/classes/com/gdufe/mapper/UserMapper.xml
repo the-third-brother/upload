@@ -1,0 +1,23 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gdufe.mapper.UserMapper">
+    <select id="login" resultType="com.gdufe.entity.User">
+        select * from users
+        <where>
+            1 = 1
+            <if test="user != null and user != ''">
+                and user = #{user}
+            </if>
+            <if test="password != null and password != ''">
+                and password = #{password}
+            </if>
+        </where>
+    </select>
+
+    <update id="updateLoginTime">
+        update users
+        set login_time = #{loginTime}
+        where u_id = #{uId}
+    </update>
+</mapper>

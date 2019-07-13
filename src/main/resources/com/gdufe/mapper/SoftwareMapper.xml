@@ -1,0 +1,64 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gdufe.mapper.SoftwareMapper">
+    <select id="queryAllSoftwareInfo" resultType="com.gdufe.entity.SoftwareDetails">
+        select * from software_details
+    </select>
+
+    <select id="getURLById" resultType="String">
+        select url from software_details
+        where s_id = #{sId}
+    </select>
+
+    <update id="countDownload">
+        update software_details
+        set download = download+1
+        where s_id = #{sId}
+    </update>
+
+    <delete id="deleteById">
+        delete from software_details
+        where s_id = #{sId}
+    </delete>
+
+    <insert id="addCategory">
+        insert into software_category
+        (name) values(#{cName})
+    </insert>
+    
+    <select id="queryCategories" resultType="com.gdufe.entity.Category">
+        select * from software_category
+    </select>
+
+    <update id="modifyCategoryById">
+        update software_category
+        set name = #{name}
+        where cid = #{cId}
+    </update>
+
+    <delete id="deleteCategoryById">
+        delete from software_category
+        where cid = #{cId}
+    </delete>
+
+    <insert id="addCategoryByName">
+        insert into software_category
+        (name) values(#{name})
+    </insert>
+
+    <select id="querySoftwareInfoById" resultType="com.gdufe.entity.SoftwareDetails">
+        select * from software_details
+        where s_id = #{sId}
+    </select>
+
+    <update id="updateSoftwareInfoById">
+        update software_details
+        set name = #{name},c_id = #{cId},statement = #{statement}
+        where s_id = #{sId}
+    </update>
+
+    <select id="countAllSoftwareInfo" resultType="int">
+        select count(*) from software_details
+    </select>
+</mapper>
